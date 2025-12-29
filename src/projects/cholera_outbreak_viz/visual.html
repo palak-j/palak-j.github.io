@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Palak Jain - Personal Page</title>
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link href='https://fonts.googleapis.com/css?family=Diplomata' rel='stylesheet'>
-		<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-    		<script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script> 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
-   		<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
-		<script src="https://d3js.org/d3.v6.js"></script>
-		<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
-       
-	<style>
-		html, body {
+  <title>Palak Jain — Portfolio</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* small custom styles */
+    :root{--accent:#7c3aed}
+    .hero-bg{
+      background: linear-gradient(135deg, rgba(2,155,237,0.3), rgba(14,165,233,0.06));
+      backdrop-filter: blur(6px);
+    }
+
+	  
+   	<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+	<script src="https://d3js.org/d3.v6.js"></script>
+	<script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+	
+	html, body {
 			background-color: #d6f5f5;
 			 		width: 100%;
     		height: 100%;
@@ -185,32 +190,27 @@
 	
 	<body>
 		
-		<div class= "topnav" id="myTopnav">
-			<nav>
-			<ul>
-			<li style="color: white; margin-left: -8px; font-size: 2em; font-family: Impact, Charcoal, serif; background: #000000; padding: 1.2% 2.5%; "><a href="https://palak-j.github.io/" style="color:white;">PALAK JAIN</a></li>
-			<li><a href="/"><b>HOME</b></a></li>
-			<li><a href="about"><b>ABOUT</b></a></li>
-			<li><a href="resume"><b>RESUME</b></a></li>
-			<li><a href="tech"><b>TECHNICAL PORTFOLIO</b></a></li>
-			<li><a href="notes"><b>NOTES</b></a></li>
-			<li><a href="curricular"><b>HOBBIES</b></a></li>
-			<a style="font-size:30px;cursor:pointer; float:right; margin-right:2%;" class="icon" onclick="openNav()">&#9776;</a>
-			</ul>
-			</nav>
-			</div>
-		
-			<div id="myNav" class="overlay">
-			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			  <div class="overlay-content">
-			    <a href="/"><b>HOME</b></a>
-			    <a href="about"><b>ABOUT</b></a>
-			    <a href="Resume_web.pdf"><b>RESUME</b></a>
-			    <a href="tech"><b>TECHNICAL PORTFOLIO</b></a>
-			    <a href="notes"><b>NOTES</b></a>
-			    <a href="curricular"><b>HOBBIES</b></a>
-			  </div>
-			</div>
+		<!-- NAV -->
+		<nav class="fixed w-full z-40 bg-white/60 backdrop-blur-md shadow-sm">
+		    <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+		      <a href="#home" class="font-extrabold text-lg tracking-tight">Palak Jain</a>
+		      <div class="hidden md:flex gap-6 items-center">
+		        <a href="#about" class="hover:text-violet-600">About</a>
+		        <a href="#projects" class="hover:text-violet-600">Projects</a>
+		        <a href="#resume" class="hover:text-violet-600">Resume</a>
+		        <a href="#circuminds" class="hover:text-violet-600">Circuminds</a>
+		        <a href="#contact" class="px-3 py-1 rounded-md bg-cyan-600 text-white hover:opacity-95">Contact</a>
+		      </div>
+		      <button id="mobileToggle" class="md:hidden">☰</button>
+		    </div>
+		    <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
+		      <a href="#about" class="block py-2">About</a>
+		      <a href="#projects" class="block py-2">Projects</a>
+		      <a href="#resume" class="block py-2">Resume</a>
+		      <a href="#circuminds" class="block py-2">Circuminds</a>
+		      <a href="#contact" class="block py-2">Contact</a>
+		    </div>
+		  </nav>
 		
 				
 		       <script>
@@ -540,59 +540,17 @@
 
 	</script>
 		
+	</body>		
 
-		
-		
-		
-  
-    
-		
-		</body>		
-             
-		<footer>
-    		        <hr>
-                        <div class="contactdetails">
-		        <ul>
+	<!-- CONTACT -->
+	  <footer id="contact" class="bg-gray-900 text-white py-10">
+	    <div class="max-w-6xl mx-auto px-6 text-center">
+	      <div class="mb-4"><a href="mailto:jainpalak3286@gmail.com" class="underline">jainpalak3286@gmail.com</a></div>
+		  <div class="mb-4"><a href="https://www.linkedin.com/in/palakjn" class="underline">LinkedIn</a></div>
+	      <div class="text-sm text-gray-400"> Palak Jain — Data Scientist</div>
+	    </div>
+	  </footer>
+	             
 			
-			
-			<li><a href="https://www.linkedin.com/in/palak-jain-83358215b/" target="_blank">
-				<span class="fa-stack fa-2x">
-  				<i class="fa fa-circle fa-stack-2x"></i>
- 				<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-				</span>
-				</a></li>
-			
-			
-        		<li><a href="mailto:jainpalak741@gmail.com" target="_blank">
-				<span class="fa-stack fa-2x">
-  				<i class="fa fa-circle fa-stack-2x"></i>
- 				<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-				</span>
-				</a></li>
-			
-			
-			<li><a href="https://github.com/palak-j" target="_blank">
-				<span class="fa-stack fa-2x">
-  				<i class="fa fa-circle fa-stack-2x"></i>
- 				<i class="fa fa-github fa-stack-1x fa-inverse"></i>
-				</span>
-				</a></li>
-			
-			<li><a href="https://www.facebook.com/palak.jain.92102" target="_blank">
-				<span class="fa-stack fa-2x">
-  				<i class="fa fa-circle fa-stack-2x"></i>
- 				<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-				</span>
-				</a></li>
-			
-			<li><a href="https://www.instagram.com/jainpalak741/" target="_blank">
-				<span class="fa-stack fa-2x">
-  				<i class="fa fa-circle fa-stack-2x"></i>
- 				<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-				</span>
-				</a></li>
-			</ul>
-                </div>
-		</footer>
 		
 </html>
