@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google Analytics (preserved from original site) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5L9HYSJ2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,13 +14,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Palak Jain — Data Scientist working across applied AI, computer vision, multimodal intelligence, and real-world machine learning." />
-
   <title>Palak Jain — Applied AI & Machine Learning</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -32,43 +30,42 @@
       --line:rgba(184,205,220,.14);
       --accent:#a6d5df;
       --warm:#ff8a4c;
+      --sans:'Manrope',sans-serif;
+      --mono:'DM Mono',monospace;
     }
 
-    * {
-      box-sizing:border-box;
-    }
+    * { box-sizing:border-box; }
 
     html {
       scroll-behavior:smooth;
+      scroll-padding-top:90px;
     }
 
     body {
       background:var(--bg);
       color:var(--ink);
-      font-family:'Manrope',sans-serif;
+      font-family:var(--sans);
+      font-size:16px;
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
     }
 
-    .mono {
-      font-family:'DM Mono',monospace;
-    }
+    .mono { font-family:var(--mono); }
 
     .grain {
       background-image:radial-gradient(rgba(255,255,255,.045) .7px,transparent .7px);
       background-size:5px 5px;
     }
 
-    .line {
-      border-color:var(--line);
-    }
+    .line { border-color:var(--line); }
 
     .link {
       color:var(--accent);
       transition:color .2s;
     }
 
-    .link:hover {
-      color:#fff;
-    }
+    .link:hover { color:#fff; }
 
     .card {
       background:linear-gradient(145deg,rgba(25,38,48,.96),rgba(19,29,37,.98));
@@ -81,9 +78,7 @@
       border-color:rgba(166,213,223,.35);
     }
 
-    .accent-text {
-      color:var(--accent);
-    }
+    .accent-text { color:var(--accent); }
 
     .hero-glow {
       background:
@@ -98,8 +93,7 @@
       pointer-events:none;
     }
 
-    .orb:before,
-    .orb:after {
+    .orb:before,.orb:after {
       content:'';
       position:absolute;
       inset:18%;
@@ -112,14 +106,76 @@
       border-color:rgba(166,213,223,.08);
     }
 
-    /* Hero expertise pills */
+    /* Navigation — consistent with projects page */
+    .site-nav {
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(16,24,32,.90);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
 
+    .nav-inner {
+      min-height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand {
+      color:var(--ink);
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:-.5px;
+      text-decoration:none;
+    }
+
+    .brand span { color:var(--accent); }
+
+    .nav-links {
+      display:flex;
+      align-items:center;
+      gap:28px;
+    }
+
+    .nav-links a {
+      color:var(--muted);
+      font-size:14px;
+      font-weight:500;
+      text-decoration:none;
+      transition:color .2s ease;
+    }
+
+    .nav-links a:hover { color:var(--accent); }
+
+    .nav-links .contact-link {
+      color:var(--accent);
+      border:1px solid rgba(166,213,223,.3);
+      padding:8px 15px;
+      border-radius:999px;
+    }
+
+    .nav-links .contact-link:hover {
+      background:rgba(166,213,223,.08);
+    }
+
+    .mobile-toggle {
+      display:none;
+      background:none;
+      color:var(--ink);
+      border:0;
+      font:inherit;
+      font-size:22px;
+      cursor:pointer;
+      padding:4px 0 4px 12px;
+    }
+
+    /* Hero pills */
     .hero-pill {
       opacity:0;
       transform:translateY(10px);
-
       animation:pill-in .65s cubic-bezier(.2,.7,.2,1) forwards;
-
       transition:
         color .25s ease,
         border-color .25s ease,
@@ -128,21 +184,9 @@
         transform .25s ease;
     }
 
-    /* Staggered entrance */
-
-    .hero-pill:nth-child(1) {
-      animation-delay:.25s;
-    }
-
-    .hero-pill:nth-child(2) {
-      animation-delay:.42s;
-    }
-
-    .hero-pill:nth-child(3) {
-      animation-delay:.59s;
-    }
-
-    /* Subtle hover interaction */
+    .hero-pill:nth-child(1) { animation-delay:.25s; }
+    .hero-pill:nth-child(2) { animation-delay:.42s; }
+    .hero-pill:nth-child(3) { animation-delay:.59s; }
 
     .hero-pill:hover {
       color:var(--accent);
@@ -152,33 +196,102 @@
       transform:translateY(-3px);
     }
 
-    /* Entrance animation */
-
     @keyframes pill-in {
-      to {
-        opacity:1;
-        transform:translateY(0);
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    /* Footer — consistent with projects page */
+    .site-footer {
+      padding:55px 0 35px;
+    }
+
+    .footer-inner {
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:30px;
+    }
+
+    .footer-label {
+      color:var(--accent);
+      font-family:var(--mono);
+      text-transform:uppercase;
+      letter-spacing:.7px;
+      font-size:11px;
+      font-weight:400;
+      margin-bottom:12px;
+    }
+
+    .site-footer h2 {
+      color:var(--ink);
+      font-size:30px;
+      line-height:1.3;
+      letter-spacing:-.9px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .site-footer p {
+      color:var(--muted);
+      font-size:15px;
+      font-weight:400;
+    }
+
+    .footer-links {
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .footer-links a {
+      color:var(--muted);
+      font-size:14px;
+      font-weight:600;
+      text-decoration:none;
+      transition:color .2s ease;
+    }
+
+    .footer-links a:hover { color:var(--accent); }
+
+    @media(max-width:760px) {
+      .nav-inner { min-height:64px; }
+
+      .mobile-toggle { display:block; }
+
+      .nav-links {
+        display:none;
+        position:absolute;
+        top:64px;
+        left:0;
+        right:0;
+        padding:20px 24px 24px;
+        background:#131f29;
+        border-bottom:1px solid var(--line);
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+      }
+
+      .nav-links.open { display:flex; }
+
+      .nav-links .contact-link {
+        padding:0;
+        border:0;
+      }
+
+      .footer-inner {
+        align-items:flex-start;
+        flex-direction:column;
       }
     }
 
-    /* Accessibility */
-
     @media(prefers-reduced-motion:reduce) {
-      html {
-        scroll-behavior:auto;
-      }
-
-      *,
-      *::before,
-      *::after {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after {
         animation:none !important;
         transition:none !important;
       }
-
-      .hero-pill {
-        opacity:1;
-        transform:none;
-      }
+      .hero-pill { opacity:1; transform:none; }
     }
   </style>
 </head>
@@ -186,60 +299,35 @@
 <body class="antialiased">
 
   <!-- Navigation -->
-  <nav class="sticky top-0 z-50 bg-[#101820]/90 backdrop-blur-xl border-b line" aria-label="Main navigation">
-
-    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
-
-      <a href="#home" class="font-extrabold tracking-tight text-lg">
-        PALAK JAIN<span class="accent-text"></span>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 nav-inner">
+      <a href="#home" class="brand">
+        Palak <span>Jain</span>
       </a>
 
-      <div class="hidden md:flex items-center gap-7 text-sm text-slate-300">
-        <a href="#about" class="hover:text-white">About</a>
-        <a href="projects.html" class="hover:text-white">Selected work</a>
-        <a href="#experience" class="hover:text-white">Experience</a>
-        <a href="#outside" class="hover:text-white">Outside work</a>
-
-        <a href="#contact" class="rounded-full border border-white/15 px-4 py-2 hover:border-[#a6d5df] hover:text-[#a6d5df]">
-          Say hello ↗
-        </a>
-      </div>
-
-      <button
-        id="mobileToggle"
-        class="md:hidden text-slate-200 text-xl"
-        aria-expanded="false"
-        aria-controls="mobileMenu"
-        aria-label="Toggle navigation"
-      >
+      <button class="mobile-toggle" id="mobileToggle"
+        aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
         ☰
       </button>
 
+      <div class="nav-links" id="mobileMenu">
+        <a href="#about">About</a>
+        <a href="projects.html">Selected work</a>
+        <a href="#experience">Experience</a>
+        <a href="#outside">Outside work</a>
+        <a href="#contact" class="contact-link">Contact</a>
+      </div>
     </div>
-
-    <div id="mobileMenu" class="hidden md:hidden px-5 pb-4 space-y-3 text-sm text-slate-300">
-      <a class="block" href="#about">About</a>
-      <a class="block" href="projects.html">Selected work</a>
-      <a class="block" href="#experience">Experience</a>
-      <a class="block" href="#outside">Outside work</a>
-      <a class="block" href="#contact">Contact</a>
-    </div>
-
   </nav>
 
   <main>
-
     <!-- Hero -->
     <header id="home" class="relative overflow-hidden grain hero-glow border-b line">
-
       <div class="orb w-[360px] h-[360px] md:w-[520px] md:h-[520px] -right-32 top-10 opacity-70"></div>
 
       <div class="relative max-w-6xl mx-auto px-5 sm:px-8 pt-20 pb-20 md:pt-28 md:pb-28">
-
         <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-12 lg:gap-16 items-center">
-
           <div>
-
             <p class="mono text-xs sm:text-sm tracking-[.18em] uppercase accent-text">
               DATA SCIENCE · COMPUTER VISION · MEDIA FORENSICS
             </p>
@@ -253,115 +341,73 @@
             </p>
 
             <div class="mt-7 flex flex-wrap gap-3">
-
               <a href="projects.html" class="inline-flex items-center gap-2 rounded-full bg-[#a6d5df] text-[#101820] px-5 py-3 text-sm font-semibold hover:bg-white transition">
                 Explore selected work ↗
               </a>
-
               <a href="#contact" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm hover:border-[#a6d5df] hover:text-[#a6d5df]">
                 Get in touch
               </a>
-
             </div>
 
-            <!-- Animated expertise pills -->
             <div class="mt-10 flex flex-wrap gap-2 mono text-[11px] tracking-wide text-slate-400">
-
-              <span class="hero-pill border line rounded-full px-3 py-2">
-                COMPUTER VISION
-              </span>
-
-              <span class="hero-pill border line rounded-full px-3 py-2">
-                MEDIA FORENSICS
-              </span>
-
-              <span class="hero-pill border line rounded-full px-3 py-2">
-                APPLIED AI
-              </span>
-
+              <span class="hero-pill border line rounded-full px-3 py-2">COMPUTER VISION</span>
+              <span class="hero-pill border line rounded-full px-3 py-2">MEDIA FORENSICS</span>
+              <span class="hero-pill border line rounded-full px-3 py-2">APPLIED AI</span>
             </div>
-
           </div>
 
           <!-- Profile picture -->
           <div class="relative max-w-sm mx-auto lg:ml-auto w-full">
-
             <div class="absolute -inset-4 rounded-[2rem] border border-[#a6d5df]/20 rotate-3"></div>
-
             <div class="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#1a2933] shadow-2xl aspect-[4/5]">
-
-              <img
-                src="src/profile_pic.jpg"
-                alt="Palak Jain"
-                class="w-full h-full object-cover object-center"
-                loading="eager"
-              />
-
+              <img src="src/profile_pic.jpg" alt="Palak Jain"
+                class="w-full h-full object-cover object-center" loading="eager" />
               <div class="absolute inset-0 bg-gradient-to-t from-[#101820]/65 via-transparent to-transparent"></div>
-
               <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
-                <div>
-                  <p class="font-semibold text-white text-lg">Palak Jain</p>
-                </div>
-
-                <!--<span class="rounded-full border border-white/25 bg-[#101820]/40 backdrop-blur px-3 py-2 text-xs text-white">Currently exploring ↗</span>-->
+                <div><p class="font-semibold text-white text-lg">Palak Jain</p></div>
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
     </header>
 
     <!-- About -->
     <section id="about" class="py-16 md:py-24">
-
       <div class="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-[.7fr_1.3fr] gap-10 md:gap-16">
-
         <div>
           <p class="mono text-xs tracking-widest accent-text">01 / A LITTLE CONTEXT</p>
           <h2 class="mt-4 text-3xl md:text-4xl font-bold">A bit about my work.</h2>
         </div>
 
         <div class="text-slate-300 leading-8 text-base md:text-lg space-y-5">
-
           <p>
             My work has mostly been around images, text, and other data that doesn't come neatly organized. I've worked in media analysis, built machine-learning models, and spent time on NLP research. The problems are often less about picking a model and more about understanding the data and what a useful result actually looks like.
           </p>
-
           <p>
             I like the parts of data science that require a little digging: understanding why a model behaves a certain way, testing whether an improvement is real, and working through practical constraints. I'm also interested in how the field is changing as generative AI becomes part of everyday tooling.
           </p>
-
           <p class="text-sm text-slate-400 leading-7">
             Lately, I've been following multimodal models, model evaluation, image authenticity, and practical ways to use LLMs without treating every problem as a chatbot.
           </p>
-
         </div>
       </div>
     </section>
 
     <!-- Featured work -->
     <section id="work" class="py-16 md:py-20 bg-[#131e26] border-y line">
-
       <div class="max-w-6xl mx-auto px-5 sm:px-8">
-
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-9">
-
           <div>
             <p class="mono text-xs tracking-widest accent-text">02 / SELECTED WORK</p>
             <h2 class="mt-3 text-3xl md:text-4xl font-bold">Selected projects</h2>
           </div>
-
           <p class="max-w-md text-sm leading-6 text-slate-400">
             A mix of work I have done, research, and projects I built to learn something new.
           </p>
-
         </div>
 
         <div class="grid md:grid-cols-3 gap-4">
-
           <a href="projects.html" class="card rounded-2xl p-6 flex flex-col min-h-[260px] group">
             <p class="mono text-xs accent-text">MULTIMODAL / VIDEO</p>
             <h3 class="mt-5 text-xl font-bold">Video understanding</h3>
@@ -388,21 +434,17 @@
             </p>
             <span class="link text-sm mt-auto pt-6">Explore research ↗</span>
           </a>
-
         </div>
 
         <div class="mt-7">
           <a href="projects.html" class="link text-sm">View all work and research ↗</a>
         </div>
-
       </div>
     </section>
 
     <!-- Experience -->
     <section id="experience" class="py-16 md:py-24">
-
       <div class="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-[.7fr_1.3fr] gap-10 md:gap-16">
-
         <div>
           <p class="mono text-xs tracking-widest accent-text">03 / EXPERIENCE</p>
           <h2 class="mt-4 text-3xl md:text-4xl font-bold">Experience</h2>
@@ -410,7 +452,6 @@
         </div>
 
         <div class="space-y-0">
-
           <article class="border-t line py-6">
             <div class="flex flex-wrap justify-between gap-2">
               <h3 class="font-bold text-lg">Lead Data Scientist</h3>
@@ -459,106 +500,86 @@
               Conducted research on extracting causal relationships from language.
             </p>
           </article>
-
         </div>
       </div>
     </section>
 
     <!-- Education strip -->
     <section class="py-10 border-y line bg-[#131e26]">
-
       <div class="max-w-6xl mx-auto px-5 sm:px-8 grid sm:grid-cols-2 gap-8">
-
         <div>
           <p class="mono text-xs tracking-widest accent-text">EDUCATION</p>
           <p class="mt-3 font-semibold">M.S. Applied Data Science</p>
           <p class="text-sm text-slate-400">Indiana University · 2022</p>
         </div>
-
         <div class="sm:pt-5">
           <p class="font-semibold">B.E. Electronics & Telecommunication</p>
           <p class="text-sm text-slate-400">Devi Ahilya University · 2018</p>
         </div>
-
       </div>
     </section>
 
     <!-- Outside work -->
     <section id="outside" class="py-16 md:py-20">
-
       <div class="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-[.7fr_1.3fr] gap-10 md:gap-16">
-
         <div>
           <p class="mono text-xs tracking-widest accent-text">04 / OUTSIDE THE DAY JOB</p>
           <h2 class="mt-4 text-3xl md:text-4xl font-bold">Things I make outside work.</h2>
         </div>
 
         <div class="card rounded-2xl p-6 md:p-8">
-
           <p class="mono text-xs accent-text">CIRCUMINDS</p>
           <h3 class="mt-3 text-2xl font-bold">Making complex ideas easier to explore.</h3>
-
           <p class="mt-4 text-sm leading-7 text-slate-300">
             Circuminds is a side project where I make short videos about AI and technology. It gives me a chance to explore topics I find interesting and explain them in a visual, approachable way.
           </p>
-
           <a href="https://circuminds.com" target="_blank" rel="noopener noreferrer" class="link text-sm inline-flex mt-6">
             Visit Circuminds ↗
           </a>
-
         </div>
       </div>
     </section>
-
-    <!-- Contact -->
-    <section id="contact" class="border-t line py-16 md:py-20 bg-[#131e26]">
-
-      <div class="max-w-6xl mx-auto px-5 sm:px-8">
-
-        <p class="mono text-xs tracking-widest accent-text">05 / CONTACT</p>
-
-        <h2 class="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl">
-          Want to get in touch?<br>
-          <span class="text-slate-400">I'd be happy to hear from you.</span>
-        </h2>
-
-        <div class="mt-8 flex flex-wrap gap-5 text-sm">
-          <a class="link" href="mailto:jainpalak3286@gmail.com">jainpalak3286@gmail.com ↗</a>
-          <a class="link" href="https://www.linkedin.com/in/palakjn/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          <a class="link" href="https://github.com/palak-j" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        </div>
-
-      </div>
-    </section>
-
   </main>
 
-  <!-- Footer -->
-  <footer class="py-6">
-    <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row justify-between gap-2 text-xs text-slate-500">
-      <span>© <span id="year"></span> Palak Jain</span>
-      <span class="mono">Computer vision · ML · media analysis</span>
+  <!-- Footer — same structure and styling as projects page -->
+  <footer class="site-footer" id="contact">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-label">GET IN TOUCH</div>
+          <h2>Have something in mind?</h2>
+          <p>Always open to interesting conversations and ideas.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="mailto:jainpalak3286@gmail.com">Email ↗</a>
+          <a href="https://www.linkedin.com/in/palakjn"
+            target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href="https://github.com/palak-j"
+            target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="projects.html">Selected work ↗</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
-    const toggle = document.getElementById('mobileToggle');
-    const menu = document.getElementById('mobileMenu');
+    const mobileToggle = document.getElementById("mobileToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
 
-    toggle.addEventListener('click', () => {
-      const open = menu.classList.toggle('hidden') === false;
-      toggle.setAttribute('aria-expanded', String(open));
+    mobileToggle.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+      mobileToggle.setAttribute("aria-expanded", String(isOpen));
+      mobileToggle.textContent = isOpen ? "×" : "☰";
     });
 
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        toggle.setAttribute('aria-expanded','false');
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        mobileToggle.setAttribute("aria-expanded", "false");
+        mobileToggle.textContent = "☰";
       });
     });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
