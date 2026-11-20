@@ -1,403 +1,564 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics (preserved from original site) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5L9HYSJ2"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	
-	  gtag('config', 'G-YX5L9HYSJ2');
-	</script>
-	
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YX5L9HYSJ2');
+  </script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <meta name="description" content="Palak Jain — Data Scientist working across applied AI, computer vision, multimodal intelligence, and real-world machine learning." />
 
-  <title>Palak Jain — Portfolio</title>
-  <!-- Tailwind CDN -->
+  <title>Palak Jain — Applied AI & Machine Learning</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    /* small custom styles */
-    :root{--accent:#7c3aed}
-    .hero-bg{
-      background: linear-gradient(135deg, rgba(2,155,237,0.3), rgba(14,165,233,0.06));
-      backdrop-filter: blur(6px);
+    :root {
+      --bg:#101820;
+      --panel:#17232c;
+      --ink:#e9eef2;
+      --muted:#9baab7;
+      --line:rgba(184,205,220,.14);
+      --accent:#a6d5df;
+      --warm:#ff8a4c;
     }
-    /* typing animation */
-    .typing{border-right:2px solid rgba(0,0,0,0.6);white-space:nowrap;overflow:hidden}
-    /* subtle floating data nodes */
-    .node{position:absolute;width:8px;height:8px;border-radius:9999px;background:var(--accent);opacity:.12;animation:float 7s linear infinite}
-    @keyframes float{0%{transform:translateY(0) translateX(0)}50%{transform:translateY(-18px) translateX(8px)}100%{transform:translateY(0) translateX(0)}}
-  
-   
-	
-    .zoom-wrapper {
-	  animation: subtleZoom 4s ease-in-out infinite;
-	  transform-origin: center center;
-	  
-	}
 
-	@keyframes subtleZoom {
-	  0%{
-		transform: scale(1);
-	  }
-	  100% {
-		transform: scale(1.06);
-	  }
-	}
+    * {
+      box-sizing:border-box;
+    }
 
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      background:var(--bg);
+      color:var(--ink);
+      font-family:'Manrope',sans-serif;
+    }
+
+    .mono {
+      font-family:'DM Mono',monospace;
+    }
+
+    .grain {
+      background-image:radial-gradient(rgba(255,255,255,.045) .7px,transparent .7px);
+      background-size:5px 5px;
+    }
+
+    .line {
+      border-color:var(--line);
+    }
+
+    .link {
+      color:var(--accent);
+      transition:color .2s;
+    }
+
+    .link:hover {
+      color:#fff;
+    }
+
+    .card {
+      background:linear-gradient(145deg,rgba(25,38,48,.96),rgba(19,29,37,.98));
+      border:1px solid var(--line);
+      transition:transform .25s,border-color .25s;
+    }
+
+    .card:hover {
+      transform:translateY(-3px);
+      border-color:rgba(166,213,223,.35);
+    }
+
+    .accent-text {
+      color:var(--accent);
+    }
+
+    .hero-glow {
+      background:
+        radial-gradient(ellipse at 80% 18%,rgba(73,132,155,.19),transparent 46%),
+        radial-gradient(ellipse at 12% 85%,rgba(255,138,76,.07),transparent 36%);
+    }
+
+    .orb {
+      position:absolute;
+      border:1px solid rgba(166,213,223,.16);
+      border-radius:50%;
+      pointer-events:none;
+    }
+
+    .orb:before,
+    .orb:after {
+      content:'';
+      position:absolute;
+      inset:18%;
+      border:1px solid rgba(166,213,223,.11);
+      border-radius:50%;
+    }
+
+    .orb:after {
+      inset:36%;
+      border-color:rgba(166,213,223,.08);
+    }
+
+    /* Hero expertise pills */
+
+    .hero-pill {
+      opacity:0;
+      transform:translateY(10px);
+
+      animation:pill-in .65s cubic-bezier(.2,.7,.2,1) forwards;
+
+      transition:
+        color .25s ease,
+        border-color .25s ease,
+        background-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+    }
+
+    /* Staggered entrance */
+
+    .hero-pill:nth-child(1) {
+      animation-delay:.25s;
+    }
+
+    .hero-pill:nth-child(2) {
+      animation-delay:.42s;
+    }
+
+    .hero-pill:nth-child(3) {
+      animation-delay:.59s;
+    }
+
+    /* Subtle hover interaction */
+
+    .hero-pill:hover {
+      color:var(--accent);
+      border-color:rgba(166,213,223,.55);
+      background-color:rgba(166,213,223,.045);
+      box-shadow:0 0 18px rgba(166,213,223,.09);
+      transform:translateY(-3px);
+    }
+
+    /* Entrance animation */
+
+    @keyframes pill-in {
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* Accessibility */
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior:auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation:none !important;
+        transition:none !important;
+      }
+
+      .hero-pill {
+        opacity:1;
+        transform:none;
+      }
+    }
   </style>
 </head>
-<body class="antialiased text-gray-800 bg-white min-h-screen">
 
-  <!-- NAV -->
-  <nav class="fixed w-full z-40 bg-white/60 backdrop-blur-md shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-      <a href="#home" class="font-extrabold text-lg tracking-tight">Palak Jain</a>
-      <div class="hidden md:flex gap-6 items-center">
-        <a href="#about" class="hover:text-violet-600">About</a>
-        <a href="#projects" class="hover:text-violet-600">Projects</a>
-        <a href="#resume" class="hover:text-violet-600">Resume</a>
-        <a href="#circuminds" class="hover:text-violet-600">Circuminds</a>
-        <a href="#contact" class="px-3 py-1 rounded-md bg-cyan-600 text-white hover:opacity-95">Contact</a>
+<body class="antialiased">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-[#101820]/90 backdrop-blur-xl border-b line" aria-label="Main navigation">
+
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+
+      <a href="#home" class="font-extrabold tracking-tight text-lg">
+        PALAK JAIN<span class="accent-text"></span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-7 text-sm text-slate-300">
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="projects.html" class="hover:text-white">Selected work</a>
+        <a href="#experience" class="hover:text-white">Experience</a>
+        <a href="#outside" class="hover:text-white">Outside work</a>
+
+        <a href="#contact" class="rounded-full border border-white/15 px-4 py-2 hover:border-[#a6d5df] hover:text-[#a6d5df]">
+          Say hello ↗
+        </a>
       </div>
-      <button id="mobileToggle" class="md:hidden">☰</button>
+
+      <button
+        id="mobileToggle"
+        class="md:hidden text-slate-200 text-xl"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+        aria-label="Toggle navigation"
+      >
+        ☰
+      </button>
+
     </div>
-    <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
-      <a href="#about" class="block py-2">About</a>
-      <a href="#projects" class="block py-2">Projects</a>
-      <a href="#resume" class="block py-2">Resume</a>
-      <a href="#circuminds" class="block py-2">Circuminds</a>
-      <a href="#contact" class="block py-2">Contact</a>
+
+    <div id="mobileMenu" class="hidden md:hidden px-5 pb-4 space-y-3 text-sm text-slate-300">
+      <a class="block" href="#about">About</a>
+      <a class="block" href="projects.html">Selected work</a>
+      <a class="block" href="#experience">Experience</a>
+      <a class="block" href="#outside">Outside work</a>
+      <a class="block" href="#contact">Contact</a>
     </div>
+
   </nav>
 
-  <!-- HERO -->
-  <header id="home" class="hero-bg relative overflow-hidden pt-24 pb-20">
-    <!-- floating nodes -->
-    <div aria-hidden class="absolute inset-0 -z-10">
-      <div class="node left-10 top-20" style="animation-duration:2s"></div>
-      <div class="node left-1/3 top-44" style="animation-duration:3s"></div>
-      <div class="node right-32 top-28" style="animation-duration:4s;opacity:.08"></div>
-      <div class="node right-10 top-56" style="animation-duration:5s;opacity:.06"></div>
-	  <div class="node left-1/2 top-24 -translate-x-1/2" style="animation-duration:7s;opacity:.12"></div>
-	  <div class="node left-1/3 bottom-24 -translate-x-1/2" style="animation-duration:7s;opacity:.12"></div>
-	  <div class="node left-1/2 bottom-40 -translate-x-1/2" style="animation-duration:5s;opacity:.1"></div>
-      <div class="node left-1/5 top-56 -translate-x-1/2" style="animation-duration:9s;opacity:.09"></div>
-	  <div class="node right-1/3 bottom-28 -translate-x-1/2" style="animation-duration:7s;opacity:.12"></div>
-	  <div class="node right-1/2 top-50 -translate-x-1/2" style="animation-duration:5s;opacity:.11"></div>
-      
+  <main>
 
-    </div>
+    <!-- Hero -->
+    <header id="home" class="relative overflow-hidden grain hero-glow border-b line">
 
-    <div class="max-w-5xl mx-auto px-3 flex flex-col md:flex-row items-center gap-10">
-      <div class="w-full md:w-1/2">
-        <p class="text-sm text-gray-700">Hi, I’m</p>
-        <h1 class="text-4xl px-1 md:text-5xl font-bold leading-tight">Palak Jain</h1>
-		<p class="mt-3 px-2 text-lg text-gray-700">I build smarter systems through vision and language data.</p>
-		<p><span class="typing ml-2" id="typing"></span></p>
+      <div class="orb w-[360px] h-[360px] md:w-[520px] md:h-[520px] -right-32 top-10 opacity-70"></div>
 
-        <div class="mt-6 flex gap-4">
-          <a href="#projects" class="px-5 py-2 rounded-md bg-cyan-600 text-white shadow hover:opacity-95">View Projects</a>
-          <a href="#resume" class="px-5 py-2 rounded-md border bg-cyan-600 border-cyan-600 text-white">View Resume</a>
-        </div>
+      <div class="relative max-w-6xl mx-auto px-5 sm:px-8 pt-20 pb-20 md:pt-28 md:pb-28">
 
-        
-      </div>
+        <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-12 lg:gap-16 items-center">
 
-      <!-- <div class="w-full md:w-1/2 flex justify-center">
-        <div class="w-72 h-72 rounded-2xl shadow-2xl overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="abstract data" class="w-full h-full object-cover" />
-          <div class="absolute bottom-4 left-4 bg-white/80 p-3 rounded-lg">
-            <div class="text-sm font-medium">Featured</div>
-            <div class="text-xs text-gray-600">Interactive Forecast Demo</div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  </header>
-
-  <!-- ABOUT -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-16">
-    <div class="grid md:grid-cols-3 gap-8 items-start">
-      <div class="md:col-span-1">
-        <div class="w-40 h-40 rounded-full overflow-hidden shadow-lg">
-          <img src="src/profile_pic.jpg" alt="profile" class="w-full h-full object-cover" />
-        </div>
-      </div>
-      <div class="md:col-span-2">
-        <h2 class="text-2xl font-bold">About Me</h2>
-        <p class="mt-3 text-gray-700">From interpreting a photograph to summarizing a paragraph, I build AI that understands the world in multiple dimensions. My work focuses on large language models, computer vision, and turning unstructured data into structured intelligence.</p>
-
-        <div class="mt-6 grid md:grid-cols-2 gap-4">
           <div>
-            <h3 class="font-semibold">Major Experience</h3>
-            <ul class="mt-2 text-gray-600 list-disc list-inside">
-              <li>Data Scientist — Verisk Analytics</li>
-              <li>NLP Researcher — Indiana University</li>
-            </ul>
+
+            <p class="mono text-xs sm:text-sm tracking-[.18em] uppercase accent-text">
+              DATA SCIENCE · COMPUTER VISION · MEDIA FORENSICS
+            </p>
+
+            <h1 class="mt-7 max-w-4xl text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-extrabold tracking-tight leading-[.98]">
+              Building intelligent systems for complex problems.
+            </h1>
+
+            <p class="mt-8 text-base md:text-lg text-slate-300 leading-8 max-w-xl">
+              I'm Palak, a Data Scientist working in computer vision, media forensics and applied AI. I spend much of my time figuring out what models can reliably tell us from images and other data—and where they fall short. Outside work, I like exploring new AI ideas and making some of them easier to understand.
+            </p>
+
+            <div class="mt-7 flex flex-wrap gap-3">
+
+              <a href="projects.html" class="inline-flex items-center gap-2 rounded-full bg-[#a6d5df] text-[#101820] px-5 py-3 text-sm font-semibold hover:bg-white transition">
+                Explore selected work ↗
+              </a>
+
+              <a href="#contact" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm hover:border-[#a6d5df] hover:text-[#a6d5df]">
+                Get in touch
+              </a>
+
+            </div>
+
+            <!-- Animated expertise pills -->
+            <div class="mt-10 flex flex-wrap gap-2 mono text-[11px] tracking-wide text-slate-400">
+
+              <span class="hero-pill border line rounded-full px-3 py-2">
+                COMPUTER VISION
+              </span>
+
+              <span class="hero-pill border line rounded-full px-3 py-2">
+                MEDIA FORENSICS
+              </span>
+
+              <span class="hero-pill border line rounded-full px-3 py-2">
+                APPLIED AI
+              </span>
+
+            </div>
+
           </div>
+
+          <!-- Profile picture -->
+          <div class="relative max-w-sm mx-auto lg:ml-auto w-full">
+
+            <div class="absolute -inset-4 rounded-[2rem] border border-[#a6d5df]/20 rotate-3"></div>
+
+            <div class="relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#1a2933] shadow-2xl aspect-[4/5]">
+
+              <img
+                src="src/profile_pic.jpg"
+                alt="Palak Jain"
+                class="w-full h-full object-cover object-center"
+                loading="eager"
+              />
+
+              <div class="absolute inset-0 bg-gradient-to-t from-[#101820]/65 via-transparent to-transparent"></div>
+
+              <div class="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
+                <div>
+                  <p class="font-semibold text-white text-lg">Palak Jain</p>
+                </div>
+
+                <!--<span class="rounded-full border border-white/25 bg-[#101820]/40 backdrop-blur px-3 py-2 text-xs text-white">Currently exploring ↗</span>-->
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="py-16 md:py-24">
+
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-[.7fr_1.3fr] gap-10 md:gap-16">
+
+        <div>
+          <p class="mono text-xs tracking-widest accent-text">01 / A LITTLE CONTEXT</p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-bold">A bit about my work.</h2>
+        </div>
+
+        <div class="text-slate-300 leading-8 text-base md:text-lg space-y-5">
+
+          <p>
+            My work has mostly been around images, text, and other data that doesn't come neatly organized. I've worked in media analysis, built machine-learning models, and spent time on NLP research. The problems are often less about picking a model and more about understanding the data and what a useful result actually looks like.
+          </p>
+
+          <p>
+            I like the parts of data science that require a little digging: understanding why a model behaves a certain way, testing whether an improvement is real, and working through practical constraints. I'm also interested in how the field is changing as generative AI becomes part of everyday tooling.
+          </p>
+
+          <p class="text-sm text-slate-400 leading-7">
+            Lately, I've been following multimodal models, model evaluation, image authenticity, and practical ways to use LLMs without treating every problem as a chatbot.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured work -->
+    <section id="work" class="py-16 md:py-20 bg-[#131e26] border-y line">
+
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-9">
+
           <div>
-            <h3 class="font-semibold">Interests</h3>
-            <p class="mt-2 text-gray-600">Computer Vision, NLP, Explainable AI, and clean visualizations.</p>
-          </div>
-        </div>
-		
-		 <!-- Added Education section here -->
-        <div class="mt-6">
-          <h3 class="font-semibold">Education</h3>
-          <ul class="mt-2 text-gray-600 list-disc list-inside">
-            <li>M.S. in Applied Data Science — Indiana University, US (2022)</li>
-            <li>B.E. in Electronics and Telecommunication — Devi Ahilya University, India (2018)</li>
-          </ul>
-        </div>
-
-        <div class="mt-6">
-          <h3 class="font-semibold">Career Timeline</h3>
-          <ol class="mt-3 border-l-2 border-gray-200 pl-4 text-gray-700">
-			<li class="mb-3"><strong>Feb. 2026</strong> — Lead Data Scientist</li>
-            <li class="mb-3"><strong>July 2024</strong> — Senior Data Scientist</li>
-            <li class="mb-3"><strong>Jan. 2023</strong> — Joined Verisk Analytics as Data Scientist I</li>
-            <li class="mb-3"><strong>Dec. 2022</strong> — Graduated with M.S. in Data Science</li>
-			<li class="mb-3"><strong>June 2022</strong> — Interned at Verisk Analytics</li>
-			<li class="mb-3"><strong>Jan. 2021</strong> — Started working as NLP Researcher</li>
-			
-          </ol>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="bg-gray-50 py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="flex items-center justify-between">
-        <h2 class="text-2xl font-bold">Selected Projects</h2>
-      </div>
-
-      <div class="mt-6 grid md:grid-cols-3 gap-6">
-        <!-- Project Card -->
-        
-        <article class="bg-white rounded-xl shadow p-4 hover:scale-[1.02] transition">
-          <img src="src/projects/wp/car_price_wp.png" alt="proj" class="rounded-md h-36 w-full object-cover" />
-          <h3 class="mt-3 font-semibold">Pre-owned Car Market Analysis and Price Prediction</h3>
-          <p class="mt-2 text-sm text-gray-600">Predictive Modeling</p>
-          <div class="mt-3 flex items-center justify-between">
-            <div class="text-xs text-gray-500">Hugging Face • Transformers</div>
-		    </div>
-            <div class="mt-2"><a href="https://github.com/palak-j/Heroku_Used_Car_Price_Prediction" class="px-2 py-1 bg-cyan-600 rounded text-white text-sm">More details →</a></div>
-        </article>
-
-		<article class="bg-white rounded-xl shadow p-4 hover:shadow-lg transition reveal hover:scale-105">
-          <img src="src/projects/wp/video_understanding.png" alt="Project thumbnail" class="rounded-md h-40 w-full object-cover" />
-          <h3 class="mt-3 font-semibold text-gray-800">Video Understanding</h3>
-          <p class="mt-2 text-sm text-gray-600">End-to-end video understanding system that transforms long videos into searchable, summarizable, and explorable knowledge.</p>
-          <div class="mt-3 flex items-center justify-between">
-            <div class="text-xs text-gray-500">Embeddings • Ollama • Video Processing</div>
-			</div>
-            <div class="mt-2"><a href="https://github.com/circuminds/End-To-End-Video-Understanding" class="px-2 py-1 bg-[#FF6B0B] rounded text-white text-sm">More Details →</a></div>
-		  
-        </article>
-
-		<article class="bg-white rounded-xl shadow p-4 hover:scale-[1.02] transition">
-          <img src="src/projects/wp/document_intelligence.png" alt="proj" class="rounded-md h-36 w-full object-cover" />
-          <h3 class="mt-3 font-semibold">RAG based Document Intelligence System</h3>
-          <p class="mt-2 text-sm text-gray-600">An end-to-end Document Intelligence system that extracts, understands, and indexes text from PDFs using OCR, embeddings, and RAG.</p>
-          <div class="mt-3 flex items-center justify-between">
-            <div class="text-xs text-gray-500">RAG • OCR • Semantic Search</div>
-			</div>
-            <div class="mt-2"><a href="https://github.com/circuminds/Document-Intelligence-and-RAG-System" class="px-2 py-1 bg-[#FF6B0B] rounded text-white text-sm">More details →</a></div>
-          
-        </article> 
-
-
-        <!-- <article class="bg-white rounded-xl shadow p-4 hover:scale-[1.02] transition">
-          <img src="src/projects/wp/blockchain_wp.jpg" alt="proj" class="rounded-md h-36 w-full object-cover" />
-          <h3 class="mt-3 font-semibold">Designing of Electronic Voting System using Blockchain</h3>
-          <p class="mt-2 text-sm text-gray-600">Blockchain based voting system</p>
-          <div class="mt-3 flex items-center justify-between">
-            <div class="text-xs text-gray-500">Blockchain • HTML • SQL database</div>
-			</div>
-            <div class="mt-2"><a href="https://github.com/palak-j/Lock-the-vote--Blockchain" class="px-2 py-1 bg-cyan-600 rounded text-white text-sm">More details →</a></div>
-          
-        </article> -->
-		
-		<article class="bg-white rounded-xl shadow p-4 flex items-center justify-center hover:scale-[1.02] transition">
-		  <a href="projects.html" class="text-lg font-semibold px-2 py-2 bg-cyan-600 rounded text-white hover:underline">View More →</a>
-		</article>
-		
-      </div>
-    </div>
-  </section>
-
-  <!-- RESUME -->
-  <section id="resume" class="bg-[rgba(2,155,237,0.1)]">
-    <div class="max-w-6xl mx-auto px-6 py-16">
-	<div class="grid md:grid-cols-2 gap-8">
-      <div>
-        <h2 class="text-2xl font-bold">Resume</h2>
-        <p class="mt-3 text-gray-700">Click below to get the clean PDF version of my resume or scroll to see an interactive summary.</p>
-		<div class="mt-6">
-          <a href="src/Resume_PJ.pdf" class="inline-block px-4 py-2 bg-cyan-600 rounded text-white">View PDF</a>
-        </div>
-		
-        <div class="mt-6 space-y-4">
-          <div class="p-4 bg-white rounded shadow-sm">
-            <h4 class="font-semibold">Lead Data Scientist — Verisk Analytics</h4>
-            <div class="text-sm text-gray-600">Feb 2023 — Present</div>
-            <p class="mt-2 text-gray-600">Worked in Digital media Forensics to detect manipulated or AI generated images.</p>
+            <p class="mono text-xs tracking-widest accent-text">02 / SELECTED WORK</p>
+            <h2 class="mt-3 text-3xl md:text-4xl font-bold">Selected projects</h2>
           </div>
 
-          <div class="p-4 bg-white rounded shadow-sm">
-            <h4 class="font-semibold">Data Science Intern — Verisk Analytics</h4>
-            <div class="text-sm text-gray-600">June 2022- Aug 2022</div>
-            <p class="mt-2 text-gray-600">Built AI models to identify faces and text in image data to protect PII.</p>
-          </div>
-		  
-		  <div class="p-4 bg-white rounded shadow-sm">
-            <h4 class="font-semibold">Research Assistant - NLP</h4>
-            <div class="text-sm text-gray-600">Jan 2021- Dec 2022</div>
-            <p class="mt-2 text-gray-600">Worked on detecting causal relationship between words.</p>
-          </div>
+          <p class="max-w-md text-sm leading-6 text-slate-400">
+            A mix of work I have done, research, and projects I built to learn something new.
+          </p>
+
         </div>
 
-        
+        <div class="grid md:grid-cols-3 gap-4">
+
+          <a href="projects.html" class="card rounded-2xl p-6 flex flex-col min-h-[260px] group">
+            <p class="mono text-xs accent-text">MULTIMODAL / VIDEO</p>
+            <h3 class="mt-5 text-xl font-bold">Video understanding</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">
+              A project to make long videos easier to search and revisit, instead of relying on a single summary.
+            </p>
+            <span class="link text-sm mt-auto pt-6">Read the case study ↗</span>
+          </a>
+
+          <a href="projects.html" class="card rounded-2xl p-6 flex flex-col min-h-[260px] group">
+            <p class="mono text-xs accent-text">DOCUMENT AI / RETRIEVAL</p>
+            <h3 class="mt-5 text-xl font-bold">Document intelligence</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">
+              Extracting text from PDFs and making the content searchable using OCR and retrieval.
+            </p>
+            <span class="link text-sm mt-auto pt-6">Read the case study ↗</span>
+          </a>
+
+          <a href="projects.html#research" class="card rounded-2xl p-6 flex flex-col min-h-[260px] group">
+            <p class="mono text-xs accent-text">NLP / RESEARCH</p>
+            <h3 class="mt-5 text-xl font-bold">Causal language & transfer learning</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-400">
+              Research projects on causal relationships in language and how models transfer across domains.
+            </p>
+            <span class="link text-sm mt-auto pt-6">Explore research ↗</span>
+          </a>
+
+        </div>
+
+        <div class="mt-7">
+          <a href="projects.html" class="link text-sm">View all work and research ↗</a>
+        </div>
+
       </div>
+    </section>
 
-      <div>
-		<div>
-		  <h3 class="font-semibold mb-4 text-gray-800 text-xl text-center">Skills</h3> 
-		</div>
-		
-		<div class="zoom-wrapper">
-		  <div id="skillsWordCloud" class="p-2 w-full h-96"></div>
-		</div>
-		
-		<img id="mask-image" src="wc_mask.jpeg" style="display:none;" />
+    <!-- Experience -->
+    <section id="experience" class="py-16 md:py-24">
 
-		<script src="https://cdn.jsdelivr.net/npm/wordcloud@1.1.2/src/wordcloud2.min.js"></script>
-		<script>
-		  const skills = [
-			['Python', 50],
-			['Predictive modeling', 48],
-			['Computer Vision', 45],
-			['LLM', 43],
-			['Deep Learning', 42],
-			['openCV', 40],
-			['Gradio', 39],
-			['Statistics', 38],
-			['SQL', 37],
-			['OpenVino', 36],
-			['TensorFlow', 35],
-			['PyTorch', 35],
-			['Docker', 34],
-			['EDA', 33]
-		  ];
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-[.7fr_1.3fr] gap-10 md:gap-16">
 
-		  const container = document.getElementById('skillsWordCloud');
+        <div>
+          <p class="mono text-xs tracking-widest accent-text">03 / EXPERIENCE</p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-bold">Experience</h2>
+          <a href="src/Resume_PJ.pdf" class="link text-sm inline-block mt-6">View resume ↗</a>
+        </div>
 
-		  function drawWordCloud() {
-			container.innerHTML = ''; // Clear previous canvas
+        <div class="space-y-0">
 
-			WordCloud(container, {
-			  list: skills,
-			  gridSize: Math.max(8, Math.floor(window.innerWidth / 80)),
-			  weightFactor: window.innerWidth < 640 ? 1.0 : 1.5,
-			  fontFamily: 'Inter, sans-serif',
-			  color: () => ['#1E3A8A', '#334155', '#0F766E', '#374151'][Math.floor(Math.random() * 4)],
-			  rotateRatio: 0.2,
-			  rotationSteps: 3,
-			  backgroundColor: 'transparent',
-			  drawOutOfBound: false,
-			  clearCanvas: true,
-			  shrinkToFit: true,
-			  maskImage: document.getElementById('mask-image'), 
-			});
-		  }
+          <article class="border-t line py-6">
+            <div class="flex flex-wrap justify-between gap-2">
+              <h3 class="font-bold text-lg">Lead Data Scientist</h3>
+              <span class="mono text-xs text-slate-500">FEB 2026 — PRESENT</span>
+            </div>
+            <p class="mt-2 text-slate-400 text-sm">Verisk Analytics</p>
+            <p class="mt-3 text-slate-300 text-sm leading-6">
+              Working in digital media forensics, focused on identifying manipulated and AI-generated images.
+            </p>
+          </article>
 
-		  drawWordCloud();
+          <article class="border-t line py-6">
+            <div class="flex flex-wrap justify-between gap-2">
+              <h3 class="font-bold text-lg">Senior Data Scientist</h3>
+              <span class="mono text-xs text-slate-500">JUL 2024 — JAN 2026</span>
+            </div>
+            <p class="mt-2 text-slate-400 text-sm">Verisk Analytics</p>
+          </article>
 
-		  // Redraw every 5 seconds to subtly animate
-		  setInterval(() => {
-			drawWordCloud();
-		  }, 4000);
+          <article class="border-t line py-6">
+            <div class="flex flex-wrap justify-between gap-2">
+              <h3 class="font-bold text-lg">Data Scientist</h3>
+              <span class="mono text-xs text-slate-500">JAN 2023 — JUN 2024</span>
+            </div>
+            <p class="mt-2 text-slate-400 text-sm">Verisk Analytics</p>
+          </article>
 
-		  window.addEventListener('resize', () => {
-			clearTimeout(window.wordCloudResizeTimer);
-			window.wordCloudResizeTimer = setTimeout(drawWordCloud, 300);
-		  });
-		</script>
-	
+          <article class="border-t line py-6">
+            <div class="flex flex-wrap justify-between gap-2">
+              <h3 class="font-bold text-lg">Data Science Intern</h3>
+              <span class="mono text-xs text-slate-500">2022</span>
+            </div>
+            <p class="mt-2 text-slate-400 text-sm">Verisk Analytics</p>
+            <p class="mt-3 text-slate-300 text-sm leading-6">
+              Developed models for identifying faces and text in image data to support privacy-oriented workflows.
+            </p>
+          </article>
 
-	  
-	  </div>
-	  
-	</div>
-	</div>
-	  
-  </section>
+          <article class="border-t line py-6">
+            <div class="flex flex-wrap justify-between gap-2">
+              <h3 class="font-bold text-lg">NLP Researcher</h3>
+              <span class="mono text-xs text-slate-500">2021 — 2022</span>
+            </div>
+            <p class="mt-2 text-slate-400 text-sm">Indiana University</p>
+            <p class="mt-3 text-slate-300 text-sm leading-6">
+              Conducted research on extracting causal relationships from language.
+            </p>
+          </article>
 
-  <!-- CIRCUMINDS -->
-  <section id="circuminds" class="bg-white border-t py-16">
-    <div class="max-w-6xl mx-auto px-6 ">
-      <div>
-        <h2 class="text-2xl font-bold">Circuminds</h2>
-        <p class="mt-2 mb-4 text-gray-700">Circuminds is my creative space where I publish quick AI explainers, experiments, and short videos. It complements my portfolio with lightweight, short and informative content.</p>
-      <a href="https://circuminds.com" target="_blank" rel="noopener" class="px-6 py-3 bg-cyan-600 rounded-md text-white">Visit Circuminds →</a>
-    </div>
-	</div>
-	
-	</section>
-    
-    
- 
+        </div>
+      </div>
+    </section>
 
-  <!-- CONTACT -->
-  <footer id="contact" class="bg-gray-900 text-white py-10">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <div class="mb-4"><a href="mailto:jainpalak3286@gmail.com" class="underline">jainpalak3286@gmail.com</a></div>
-	  <div class="mb-4"><a href="https://www.linkedin.com/in/palakjn" class="underline">LinkedIn</a></div>
-      <div class="text-sm text-gray-400"> Palak Jain — Data Scientist</div>
+    <!-- Education strip -->
+    <section class="py-10 border-y line bg-[#131e26]">
+
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 grid sm:grid-cols-2 gap-8">
+
+        <div>
+          <p class="mono text-xs tracking-widest accent-text">EDUCATION</p>
+          <p class="mt-3 font-semibold">M.S. Applied Data Science</p>
+          <p class="text-sm text-slate-400">Indiana University · 2022</p>
+        </div>
+
+        <div class="sm:pt-5">
+          <p class="font-semibold">B.E. Electronics & Telecommunication</p>
+          <p class="text-sm text-slate-400">Devi Ahilya University · 2018</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Outside work -->
+    <section id="outside" class="py-16 md:py-20">
+
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 grid md:grid-cols-[.7fr_1.3fr] gap-10 md:gap-16">
+
+        <div>
+          <p class="mono text-xs tracking-widest accent-text">04 / OUTSIDE THE DAY JOB</p>
+          <h2 class="mt-4 text-3xl md:text-4xl font-bold">Things I make outside work.</h2>
+        </div>
+
+        <div class="card rounded-2xl p-6 md:p-8">
+
+          <p class="mono text-xs accent-text">CIRCUMINDS</p>
+          <h3 class="mt-3 text-2xl font-bold">Making complex ideas easier to explore.</h3>
+
+          <p class="mt-4 text-sm leading-7 text-slate-300">
+            Circuminds is a side project where I make short videos about AI and technology. It gives me a chance to explore topics I find interesting and explain them in a visual, approachable way.
+          </p>
+
+          <a href="https://circuminds.com" target="_blank" rel="noopener noreferrer" class="link text-sm inline-flex mt-6">
+            Visit Circuminds ↗
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="border-t line py-16 md:py-20 bg-[#131e26]">
+
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+        <p class="mono text-xs tracking-widest accent-text">05 / CONTACT</p>
+
+        <h2 class="mt-4 text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl">
+          Want to get in touch?<br>
+          <span class="text-slate-400">I'd be happy to hear from you.</span>
+        </h2>
+
+        <div class="mt-8 flex flex-wrap gap-5 text-sm">
+          <a class="link" href="mailto:jainpalak3286@gmail.com">jainpalak3286@gmail.com ↗</a>
+          <a class="link" href="https://www.linkedin.com/in/palakjn/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="link" href="https://github.com/palak-j" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-6">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row justify-between gap-2 text-xs text-slate-500">
+      <span>© <span id="year"></span> Palak Jain</span>
+      <span class="mono">Computer vision · ML · media analysis</span>
     </div>
   </footer>
 
   <script>
-    // mobile menu
-    const mobileToggle = document.getElementById('mobileToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileToggle.addEventListener('click',()=>{ mobileMenu.classList.toggle('hidden'); });
+    const toggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('mobileMenu');
 
-    // smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',(e)=>{
-        const href = a.getAttribute('href');
-        if(href.startsWith('#')){
-          e.preventDefault();
-          const el = document.querySelector(href);
-          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-        }
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('hidden') === false;
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        toggle.setAttribute('aria-expanded','false');
       });
     });
 
-    // typing animation (small loop)
-    const phrases = ['Computer Vision', 'Natural Language Processing', 'Explainable AI', 'Blockchain', 'Deep Learning', 'Data Visualization'];
-    const typingEl = document.getElementById('typing');
-    let pIdx=0, cIdx=0, forward=true;
-    function tick(){
-      const text = phrases[pIdx];
-      if(forward){
-        cIdx++;
-        if(cIdx>text.length){ forward=false; setTimeout(tick,900); return; }
-      } else {
-        cIdx--;
-        if(cIdx<0){ forward=true; pIdx=(pIdx+1)%phrases.length; setTimeout(tick,300); return; }
-      }
-      typingEl.textContent = text.slice(0,cIdx);
-      setTimeout(tick,80);
-    }
-    tick();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
